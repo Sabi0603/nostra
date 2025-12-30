@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostra: Collections</title>
+    <!-- CUSTOM STYLE SHEET -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <!-- FONT AWESOME CDN LINK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- TAILWIND CSS CDN LINK -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <!-- OFFER BAR -->
+    <section id="offerBar" class="w-full h-[60px] bg-slate-800 text-white flex justify-between items-center px-6 text-sm transition-all duration-1000 md:text-xl lg:text-2xl">
+        <p class="flex-1 text-center">Sign Up and <b>GET 20% OFF</b> for your First Order</p>
+        <button id="offerCloseBtn"><i class="fa-solid fa-xmark cursor-pointer"></i></button>
+    </section>
+    <!-- NAVBAR -->
+    <header class="w-full h-[60px] px-6 shadow-md bg-white flex justify-between items-center sticky top-0 left-0 z-[100]">
+        <a class="inline-block md:flex-1 lg:flex-grow-0" href="./index.html">
+            <h1 class="text-slate-800 text-2xl font-bold lg:text-4xl">Nostra</h1>
+        </a>
+        <nav>
+            <ul class="gap-4 text-lg hidden lg:flex">
+                <li><a class="text-slate-600 font-bold hover:text-black hover:underline nav-link" href="./index.html">Home</a></li>
+                <li><a class="text-slate-600 font-bold hover:text-black hover:underline nav-link" href="#">Collections</a></li>
+                <li><a class="text-slate-600 font-bold hover:text-black hover:underline nav-link" href="./contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="hidden justify-end gap-4 md:flex">
+            <button class="border rounded-md font-bold text-slate-800 px-3 py-1 cursor-pointer hover:bg-slate-800 hover:text-white">Login</button>
+            <button class="border rounded-md font-bold text-white bg-slate-800 px-3 py-1 cursor-pointer hover:bg-white hover:text-slate-800">Sign up</button>
+        </div>
+        <button id="sideNavOpen" class="ml-4 lg:hidden">
+            <i class="fa-solid fa-bars text-xl md:text-2xl cursor-pointer"></i>
+        </button>
+    </header>
+    <!-- SIDE NAVBAR -->
+    <aside id="sideNavbar" class="w-1/2 h-screen bg-slate-800 text-white p-6 flex z-100 flex-col fixed top-0 left-0 transition-all duration-1000 -translate-x-full">
+        <div class="text-2xl flex justify-between">
+            <h1>Nostra</h1>
+            <button id="sideNavClose"><i class="fa-solid fa-xmark cursor-pointer"></i></button>
+        </div>
+        <nav class="mt-6 text-xl">
+            <ul class="flex flex-col gap-4">
+                <li><a class="text-gray-200 side__nav-link" href="./index.html">Home</a></li>
+                <li><a class="text-gray-200 side__nav-link" href="#">Collections</a></li>
+                <li><a class="text-gray-200 side__nav-link" href="./contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="mt-auto flex flex-col gap-4 md:hidden">
+            <button class="border rounded-md font-bold text-white bg-slate-800 px-3 py-1 cursor-pointer hover:bg-white hover:text-slate-800">Login</button>
+            <button class="border rounded-md font-bold text-white bg-slate-800 px-3 py-1 cursor-pointer hover:bg-white hover:text-slate-800">Sign up</button>
+        </div>
+    </aside>
+    <!-- COLLECTION HEADER -->
+    <section class="w-full h-[60px] flex px-6 items-center border-b sticky top-[60px] bg-white z-10">
+        <h3 class="flex-1 text-center text-2xl font-bold lg:text-4xl">Collections</h3>
+        <button id="filterOpen" class="text-xl font-bold lg:hidden"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+    </section>
+    <main class="w-full grid grid-cols-1 lg:grid-cols-[260px_1fr]">
+        <!-- FILTER -->
+        <aside id="filterSlide" class="fixed h-[calc(100vh-120px)] -translate-x-full lg:translate-x-0 transition-transform duration-1000 z-40 lg:z-0 lg:block bg-gray-300 p-4 lg:sticky top-[120px] left-0">
+            <div class="flex justify-between items-center">
+                <h4 class="text-xl font-bold mb-4">Filter</h4>
+                <button id="filterClose" class="lg:hidden"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="mb-6">
+                <label for="sortBy" class="font-semibold">Sort by</label>
+                <select id="sortBy" class="w-full mt-2 p-2 rounded">
+                    <option value="">Default</option>
+                    <option value="price-asc">Price (Low to High)</option>
+                    <option value="price-desc">Price (High to Low)</option>
+                </select>
+            </div>
+            <div class="mb-6 bg-gray-200 p-3 rounded-xl">
+                <h5 class="font-bold mb-2">Occasion</h5>
+                <label class="block"><input type="checkbox" name="occasion" value="Summer"> Summer</label>
+                <label class="block"><input type="checkbox" name="occasion" value="Party"> Party</label>
+                <label class="block"><input type="checkbox" name="occasion" value="Beach"> Beach</label>
+            </div>
+            <div class="mb-6 bg-gray-200 p-3 rounded-xl">
+                <h5 class="font-bold mb-2">Colors</h5>
+                <label class="block"><input type="checkbox" name="colors" value="Red"> Red</label>
+                <label class="block"><input type="checkbox" name="colors" value="Black"> Black</label>
+                <label class="block"><input type="checkbox" name="colors" value="White"> White</label>
+                <label class="block"><input type="checkbox" name="colors" value="Orange"> Orange</label>
+            </div>
+            <div class="bg-gray-200 p-3 rounded-xl">
+                <h5 class="font-bold mb-2">Arrivals</h5>
+                <label class="block"><input type="checkbox" name="arrival" value="Latest"> Latest</label>
+                <label class="block"><input type="checkbox" name="arrival" value="Old"> Old</label>
+            </div>
+        </aside>
+        <section class="p-6">
+            <div  id="collectionView" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="p-8 bg-slate-800 text-white">
+        <h1 class="text-3xl font-bold md:text-5xl">Nostra</h1>
+        <p class="text-lg mt-5 md:text-2xl">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested</p>
+        <div class="flex gap-5 mt-5 text-lg md:text-2xl">
+            <i class="fa-brands fa-instagram cursor-pointer"></i>
+            <i class="fa-brands fa-twitter cursor-pointer"></i>
+            <i class="fa-brands fa-facebook cursor-pointer"></i>
+        </div>
+        <p class="mt-5 text-lg md:text-2xl">&copy; 2025Nostra.com</p>
+    </footer>
+    <script src="./js/navbar.js"></script>
+    <script type="module" src="./js/collection.js"></script>
+</body>
+</html>

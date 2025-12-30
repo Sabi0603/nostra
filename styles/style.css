@@ -1,0 +1,13 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.nav__link--active{
+    color: black;
+    text-decoration: underline;
+}
+
+.side__nav__link--active{
+    color: white;
+    text-decoration: underline;
+}
